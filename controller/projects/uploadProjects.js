@@ -30,7 +30,6 @@ const uploadProjectController = async (req, res) => {
             data: saveProject
         });
     } catch (error) {
-        console.error('Error parsing form:', error);
         res.status(500).json({
             message: 'Error parsing form',
             error: true,

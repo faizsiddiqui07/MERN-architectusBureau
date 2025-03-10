@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8000;
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174", "https://front-architectus.vercel.app"],
+  origin: ["http://localhost:5173", "http://localhost:5174", "https://front-architectus.vercel.app", 'https://architectusbureau.com'],
   credentials: true,
   methods: 'GET,POST,PUT,DELETE',
 }));
@@ -21,6 +21,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use("/files", express.static("files"));
+
+app.get('/', (req, res) => {
+  res.send('Hello from backend!');
+});
 
 // Routes
 app.use('/', router);
